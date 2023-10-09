@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { zodFetcher } from "./zfetch";
+import { zfetch } from "./zfetch";
 
 const product = z.object({
   id: z.number(),
@@ -23,7 +23,7 @@ const schema = z.object({
 });
 
 export default async function Home() {
-  const data = await zodFetcher({ schema, url: "/products" });
+  const data = await zfetch({ schema, path: "/products" });
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
